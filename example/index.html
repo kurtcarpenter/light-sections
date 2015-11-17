@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="../dist/lightSections.min.css" rel="stylesheet">
+
+    <style>
+      .ls-section:nth-child(1) {
+        background-color: orange;
+        color: #333;
+      }
+      .ls-section:nth-child(2) {
+        background-color: green;
+        color: white;
+      }
+      .ls-section:nth-child(3) {
+        background-image: url('vintage-sm.jpg');
+        background-size: cover;
+        color: black;
+      }
+      h1 {
+        padding-top: 45vh;
+        margin-top: 0px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ls-main">
+      <div class="ls-section">
+        <h1>This is a section!</h1>
+      </div>
+      <div class="ls-section">
+        <h1>A big image...</h1>
+      </div>
+      <div class="ls-section">
+        <h1>... and yet another section!</h1>
+      </div>
+      <div class="ls-pagination-outer">
+        <div class="ls-pagination"></div>
+      </div>
+    </div>
+    <script src="../dist/lightSections.min.js"></script>
+  </body>
+</html>
