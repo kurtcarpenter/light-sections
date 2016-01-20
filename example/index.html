@@ -1,39 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link href="../dist/lightSections.min.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+    <title>light-sections: Lightweight Scrollable Sections</title>
 
-    <style>
-      .ls-section:nth-child(1) {
-        background-color: orange;
-        color: #333;
-      }
-      .ls-section:nth-child(2) {
-        background-color: green;
-        color: white;
-      }
-      .ls-section:nth-child(3) {
-        background-image: url('vintage-sm.jpg');
-        background-size: cover;
-        color: black;
-      }
-      h1 {
-        padding-top: 45vh;
-        margin-top: 0px;
-        text-align: center;
-      }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Description" content="Beautiful fullpage sections in a tiny,
+      no-dependency library.">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div class="ls-main">
       <div class="ls-section">
-        <h1>This is a section!</h1>
+        <div class="content left">
+          <h1>light-sections</h1>
+          <h2>beautiful, simple, scrolling websites</h2>
+          <h2>lightweight library with no dependencies</h2>
+        </div>
       </div>
       <div class="ls-section">
-        <h1>A big image...</h1>
+        <div class="content">
+          <h1 class="dark">Stunning full-page images</h1>
+        </div>
       </div>
       <div class="ls-section">
-        <h1>... and yet another section!</h1>
+        <div class="content left">
+          <h2>Quick, easy implementation</h2>
+          <h2>highly configurable</h2>
+          <img src="./code-mvp.jpg" class="img-display"></img>
+        </div>
+      </div>
+      <div class="ls-section">
+        <div class="content left">
+          <h1>light-sections</h1>
+          <h2>supporting all modern browsers</h2>
+          <h2>under continuing, active development</h2>
+          <br/>
+          <a href="https://github.com/kurtcarpenter/light-sections" class="dl-link">
+            <img src="./GitHub-Mark-Light-64px.png"></img>
+            <h2>Download<h2/>
+          </a>
+        </div>
       </div>
       <div class="ls-pagination-outer">
         <div class="ls-pagination"></div>

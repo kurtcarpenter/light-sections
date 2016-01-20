@@ -14,7 +14,6 @@ body {
 }
 
 .ls-pagination-outer {
-  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
@@ -25,6 +24,7 @@ body {
   vertical-align: middle;
   box-sizing: border-box;
   padding-left: 8px;
+  list-style-type: none;
 }
 
 .ls-pagination li {
