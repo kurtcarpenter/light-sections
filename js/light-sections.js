@@ -16,24 +16,30 @@ paginationOuter.style.transition += "top 0.5s ease-in"
 var pagination = (document.getElementsByClassName) ?
     document.getElementsByClassName('ls-pagination')[0] :
     document.querySelectorAll('.ls-pagination')[0]
+var releasedUp = 1
+var releasedDown = 1
 
 /* Scroll Handler */
 var handleScroll = function (e) {
-  if (Date.now() - lastScrolled < scrollDelay) {
-    return
-  }
-  lastScrolled = Date.now()
-
   var e = window.event || e;
   //wheelData for scroll/mousewheel
   //detail for Firefox support :(
 	var wDelta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
   wDelta = (wDelta === -1) ? "down" : "up"
+  scrollPage(wDelta)
+}
+
+var scrollPage = function (dir) {
+  if (Date.now() - lastScrolled < scrollDelay) {
+    return
+  }
+  lastScrolled = Date.now()
+  
   document.getElementsByClassName("pager")[curPage].className = "pager"
-  if (wDelta === "down") {
+  if (dir === "down") {
     curPage++
     curPage = Math.min(curPage, numPages - 1)
-  } else if (wDelta === "up") {
+  } else if (dir === "up") {
     curPage--
     curPage = Math.max(0, curPage)
   }
@@ -47,7 +53,8 @@ var manualScroll = function(e) {
   if (Date.now() - lastScrolled < scrollDelay) {
     return
   }
-    lastScrolled = Date.now()
+  lastScrolled = Date.now()
+
   if (i < 0 || i > numPages - 1) {
     return
   }
@@ -69,6 +76,37 @@ if (document.addEventListener) {
       function (item, i) { document.addEventListener(item, handleScroll, false) })
 } else if (main.attachEvent) {
   document.attachEvent("onscroll", handleScroll)
+}
+
+/* Setup Key Listener */
+document.onkeydown = function(e) {
+  switch (e.keyCode) {
+    case 38:
+      if (releasedUp) {
+        scrollPage("up")
+      }
+      releasedUp = 0
+      e.preventDefault()
+      break
+    case 40:
+      if (releasedDown) {
+        scrollPage("down")
+      }
+      releasedDown = 0
+      e.preventDefault()
+      break
+  }
+}
+
+document.onkeyup = function(e) {
+  switch (e.keyCode) {
+    case 38:
+      releasedUp = 1
+      break
+    case 40:
+      releasedDown = 1
+      break
+  }
 }
 
 /* Center pagination */
